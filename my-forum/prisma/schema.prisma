@@ -9,3 +9,35 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  userId Int    @id @default(autoincrement()) //el id de la tabla paciente AUTOINCREMENTA el contador
+  name   String
+  age   String
+
+  comm comment[]
+
+}
+
+model comment{
+  commentId Int @id @default(autoincrement())
+  content String
+  date DateTime @default(now())
+
+  userId Int
+  user User @relation(fields: [userId], references: [userId])
+
+  cont content[]
+
+}
+
+
+model content{
+  contentId Int @id @default(autoincrement())
+
+  commentId Int
+  comment comment @relation(fields: [commentId], references: [commentId])
+
+
+
+}
