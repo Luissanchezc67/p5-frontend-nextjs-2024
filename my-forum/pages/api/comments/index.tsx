@@ -1,3 +1,5 @@
+// pages/api/comments/index.ts
+
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 
@@ -13,6 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       res.status(200).json(comments);
     } catch (error) {
+      console.error('Error fetching comments:', error);
       res.status(500).json({ error: 'Error fetching comments' });
     }
   } else {
@@ -20,4 +23,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
-
