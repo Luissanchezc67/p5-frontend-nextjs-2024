@@ -78,7 +78,10 @@ export default function HomePage() {
         Disney / Pixar en ganar el premio desde Rango (2011) y tuvo un éxito
         similar en la 76.ª edición de los Golden Globe Awards, la 72.ª edición
         de los British Academy Film Awards y la 46.os Premios Annie.{" "}
+
+      
       </p>
+      
 
       <h2>Recent Comments</h2>
       <ul>
@@ -124,7 +127,7 @@ export default function HomePage() {
             required
           ></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );
