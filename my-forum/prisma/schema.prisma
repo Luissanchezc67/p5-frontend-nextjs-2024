@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,33 +8,16 @@ datasource db {
 }
 
 model User {
-  userId Int    @id @default(autoincrement()) //el id de la tabla paciente AUTOINCREMENTA el contador
-  name   String
-  age   String
-
-  comm comment[]
-
+  userId   Int       @id @default(autoincrement())
+  name     String   @unique
+  age      String
+  comments Comment[]
 }
 
-model comment{
-  commentId Int @id @default(autoincrement())
-  content String
-  date DateTime @default(now())
-
-  userId Int
-  user User @relation(fields: [userId], references: [userId])
-
-  cont content[]
-
-}
-
-
-model content{
-  contentId Int @id @default(autoincrement())
-
-  commentId Int
-  comment comment @relation(fields: [commentId], references: [commentId])
-
-
-
+model Comment {
+  commentId Int      @id @default(autoincrement())
+  content   String
+  date      DateTime @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [userId])
 }
