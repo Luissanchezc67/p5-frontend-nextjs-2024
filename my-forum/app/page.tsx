@@ -1,9 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';  // Importar useEffect desde 'react'
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [comments, setComments] = useState([]);
@@ -34,7 +31,6 @@ export default function HomePage() {
     }
   }
 
-  // Fetch comments when the component mounts
   useEffect(() => {
     fetchComments();
   }, []);
